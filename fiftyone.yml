@@ -1,6 +1,6 @@
 fiftyone:
   version: "~0.21.0"
-name: "image_deduplication"
+name: "@jacobmarks/image_deduplication"
 version: "1.0.0"
 description: "Find and remove duplicate images"
 url: "https://github.com/jacobmarks/image-dedup-plugin/blob/main/README.md"
