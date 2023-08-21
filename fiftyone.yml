@@ -1,0 +1,15 @@
+fiftyone:
+  version: "~0.21.0"
+name: "image_deduplication"
+version: "1.0.0"
+description: "Find and remove duplicate images"
+url: "https://github.com/jacobmarks/image-dedup-plugin/blob/main/README.md"
+operators:
+  - find_approximate_duplicate_images
+  - find_exact_duplicate_images
+  - display_approximate_duplicate_groups
+  - display_exact_duplicate_groups
+  - remove_all_approximate_duplicates
+  - remove_all_exact_duplicates
+  - deduplicate_approximate_duplicates
+  - deduplicate_exact_duplicates
