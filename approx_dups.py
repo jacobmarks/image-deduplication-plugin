@@ -1,7 +1,4 @@
-from collections import Counter
-
 import fiftyone as fo
-import fiftyone.core.utils as fou
 from fiftyone import ViewField as F
 
 
