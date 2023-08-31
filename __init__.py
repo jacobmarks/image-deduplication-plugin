@@ -39,6 +39,7 @@ class FindExactDuplicates(foo.Operator):
             name="find_exact_duplicate_images",
             label="Dedup: Find exact duplicates",
             description="Find exact duplicates in the dataset",
+            icon="/assets/exact_dup.svg",
             dynamic=True,
         )
 
@@ -79,6 +80,7 @@ class DisplayExactDuplicates(foo.Operator):
             name="display_exact_duplicate_groups",
             label="Dedup: Display exact duplicates",
             description="Display exact duplicates in the dataset",
+            icon="/assets/view_groups.svg",
             dynamic=True,
         )
 
@@ -109,6 +111,7 @@ class RemoveAllExactDuplicates(foo.Operator):
             name="remove_all_exact_duplicates",
             label="Dedup: Remove all exact duplicates",
             description="Remove all exact duplicates from the dataset",
+            icon="/assets/delete.svg",
             dynamic=True,
         )
 
@@ -136,6 +139,7 @@ class DeduplicateExactDuplicates(foo.Operator):
             name="deduplicate_exact_duplicates",
             label="Dedup: Deduplicate exact duplicates",
             description="Remove all but one copy from each group of exact duplicates in the dataset",
+            icon="/assets/representative.svg",
             dynamic=True,
         )
 
@@ -163,6 +167,7 @@ class FindApproximateDuplicates(foo.Operator):
             name="find_approximate_duplicate_images",
             label="Dedup: Find approximate duplicates",
             description="Find approximate duplicates in the dataset",
+            icon="/assets/approx_dup.svg",
             dynamic=True,
         )
 
@@ -263,6 +268,7 @@ class DisplayApproximateDuplicates(foo.Operator):
             name="display_approximate_duplicate_groups",
             label="Dedup: Display approximate duplicates",
             description="Display approximate duplicates in the dataset",
+            icon="/assets/view_groups.svg",
             dynamic=True,
         )
 
@@ -293,6 +299,7 @@ class RemoveAllApproximateDuplicates(foo.Operator):
             name="remove_all_approximate_duplicates",
             label="Dedup: Remove all approximate duplicates",
             description="Remove all approximate duplicates from the dataset",
+            icon="/assets/delete.svg",
             dynamic=True,
         )
 
@@ -320,6 +327,7 @@ class DeduplicateApproximateDuplicates(foo.Operator):
             name="deduplicate_approximate_duplicates",
             label="Dedup: Deduplicate approximate duplicates",
             description="Remove all but one copy from each group of approximate duplicates in the dataset",
+            icon="/assets/representative.svg",
             dynamic=True,
         )
 

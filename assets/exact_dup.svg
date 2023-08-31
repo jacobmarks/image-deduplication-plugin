@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 100 125">
+	<rect fill="white" x="14.5" y="68.3" width="15.2" height="4.9" />
+	<rect fill="white" x="14.5" y="81.1" width="18" height="5" />
+	<rect fill="white" x="47.5" y="38.6" width="29.9" height="4.7" />
+	<rect fill="white" x="47.4" y="50.7" width="16.3" height="4.9" />
+	<rect fill="white" x="47.4" y="63.5" width="21.5" height="5" />
+	<rect fill="white" x="47.6" y="25.1" width="21.3" height="5" />
+	<path fill="white" d="M84.2,3H43v5.3h35.5v14.2h14.2v54.7H40.2V36.4h-5.3v6.3H14.7v5h20.1v8.4l-20.3,0.1l0,4.7l20.2-0.1v21.7h24.9  v10.8H7.3V36.4H2v62.2h63.1V82.5H98V16.8L84.2,3z M82.9,18V8.3l9.7,9.7H82.9z" />
+	<polygon fill="white" points="37.5,20.2 25.5,12.5 25.5,18.4 11,18.4 11,1.4 5.7,1.4 5.7,23.6 25.5,23.6 25.5,29.3 " />
+</svg>
