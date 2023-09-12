@@ -17,7 +17,7 @@ It demonstrates how to do the following:
 ## Installation
 
 ```shell
-fiftyone plugins download https://github.com/jacobmarks/image-dedup-plugin
+fiftyone plugins download https://github.com/jacobmarks/image-deduplication-plugin
 ```
 
 ## Operators
