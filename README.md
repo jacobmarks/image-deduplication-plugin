@@ -23,6 +23,8 @@ fiftyone plugins download https://github.com/jacobmarks/image-deduplication-plug
 ## Operators
 
 ### `find_approximate_duplicate_images`
+![find_approx_dups](https://github.com/jacobmarks/image-deduplication-plugin/assets/12500356/8cf44a01-505d-4942-8a24-2c2d65365894)
+
 
 This operator finds near-duplicate images in a dataset using a specified similarity index paired with either a distance threshold or a fraction of samples to mark as duplicates.
 
@@ -33,6 +35,7 @@ This operator finds near-duplicate images in a dataset using a specified similar
 This operator finds exact duplicate images in a dataset using a hash function.
 
 ### `display_approximate_duplicate_groups`
+![display_approx_dups](https://github.com/jacobmarks/image-deduplication-plugin/assets/12500356/07fefbd4-9df7-4ff5-8433-091629c2a040)
 
 This operator displays the images in a dataset that are near-duplicates of each other, grouped together.
 
@@ -42,6 +45,7 @@ This operator displays the images in a dataset that are near-duplicates of each 
 This operator displays the images in a dataset that are exact duplicates of each other, grouped together.
 
 ### `remove_all_approximate_duplicates`
+![remove_approx_dups](https://github.com/jacobmarks/image-deduplication-plugin/assets/12500356/1a23d1c1-3441-4286-b308-be99fb5f0a4a)
 
 This operator removes all near-duplicate images from a dataset.
 
@@ -51,6 +55,8 @@ This operator removes all near-duplicate images from a dataset.
 This operator removes all exact duplicate images from a dataset.
 
 ### `deduplicate_approximate_duplicates`
+
+![dedup_approx_dups](https://github.com/jacobmarks/image-deduplication-plugin/assets/12500356/f5661c6c-ebe9-41c6-9de8-a2c8048176f8)
 
 This operator removes near-duplicate images from a dataset, _keeping a representative image_ from each duplicate set.
 
