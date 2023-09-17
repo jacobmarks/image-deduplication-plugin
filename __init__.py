@@ -35,13 +35,14 @@ def get_similarity_runs(dataset):
 class FindExactDuplicates(foo.Operator):
     @property
     def config(self):
-        return foo.OperatorConfig(
+        _config = foo.OperatorConfig(
             name="find_exact_duplicate_images",
             label="Dedup: Find exact duplicates",
             description="Find exact duplicates in the dataset",
-            icon="/assets/exact_dup.svg",
             dynamic=True,
         )
+        _config.icon = "/assets/exact_dup.svg"
+        return _config
 
     def resolve_input(self, ctx):
         inputs = types.Object()
@@ -76,13 +77,14 @@ class FindExactDuplicates(foo.Operator):
 class DisplayExactDuplicates(foo.Operator):
     @property
     def config(self):
-        return foo.OperatorConfig(
+        _config = foo.OperatorConfig(
             name="display_exact_duplicate_groups",
             label="Dedup: Display exact duplicates",
             description="Display exact duplicates in the dataset",
-            icon="/assets/view_groups.svg",
             dynamic=True,
         )
+        _config.icon = "/assets/view_groups.svg"
+        return _config
 
     def resolve_input(self, ctx):
         inputs = types.Object()
@@ -107,13 +109,13 @@ class DisplayExactDuplicates(foo.Operator):
 class RemoveAllExactDuplicates(foo.Operator):
     @property
     def config(self):
-        return foo.OperatorConfig(
+        _config = foo.OperatorConfig(
             name="remove_all_exact_duplicates",
             label="Dedup: Remove all exact duplicates",
             description="Remove all exact duplicates from the dataset",
-            icon="/assets/delete.svg",
             dynamic=True,
         )
+        _config.icon = "/assets/delete.svg"
 
     def resolve_input(self, ctx):
         inputs = types.Object()
@@ -135,13 +137,14 @@ class RemoveAllExactDuplicates(foo.Operator):
 class DeduplicateExactDuplicates(foo.Operator):
     @property
     def config(self):
-        return foo.OperatorConfig(
+        _config = foo.OperatorConfig(
             name="deduplicate_exact_duplicates",
             label="Dedup: Deduplicate exact duplicates",
             description="Remove all but one copy from each group of exact duplicates in the dataset",
-            icon="/assets/representative.svg",
             dynamic=True,
         )
+        _config.icon = "/assets/representative.svg"
+        return _config
 
     def resolve_input(self, ctx):
         inputs = types.Object()
@@ -163,13 +166,14 @@ class DeduplicateExactDuplicates(foo.Operator):
 class FindApproximateDuplicates(foo.Operator):
     @property
     def config(self):
-        return foo.OperatorConfig(
+        _config = foo.OperatorConfig(
             name="find_approximate_duplicate_images",
             label="Dedup: Find approximate duplicates",
             description="Find approximate duplicates in the dataset",
-            icon="/assets/approx_dup.svg",
             dynamic=True,
         )
+        _config.icon = "/assets/approx_dup.svg"
+        return _config
 
     def resolve_input(self, ctx):
         inputs = types.Object()
@@ -264,13 +268,14 @@ class FindApproximateDuplicates(foo.Operator):
 class DisplayApproximateDuplicates(foo.Operator):
     @property
     def config(self):
-        return foo.OperatorConfig(
+        _config = foo.OperatorConfig(
             name="display_approximate_duplicate_groups",
             label="Dedup: Display approximate duplicates",
             description="Display approximate duplicates in the dataset",
-            icon="/assets/view_groups.svg",
             dynamic=True,
         )
+        _config.icon = "/assets/view_groups.svg"
+        return _config
 
     def resolve_input(self, ctx):
         inputs = types.Object()
@@ -295,13 +300,14 @@ class DisplayApproximateDuplicates(foo.Operator):
 class RemoveAllApproximateDuplicates(foo.Operator):
     @property
     def config(self):
-        return foo.OperatorConfig(
+        _config = foo.OperatorConfig(
             name="remove_all_approximate_duplicates",
             label="Dedup: Remove all approximate duplicates",
             description="Remove all approximate duplicates from the dataset",
-            icon="/assets/delete.svg",
             dynamic=True,
         )
+        _config.icon = "/assets/delete.svg"
+        return _config
 
     def resolve_input(self, ctx):
         inputs = types.Object()
@@ -323,13 +329,14 @@ class RemoveAllApproximateDuplicates(foo.Operator):
 class DeduplicateApproximateDuplicates(foo.Operator):
     @property
     def config(self):
-        return foo.OperatorConfig(
+        _config = foo.OperatorConfig(
             name="deduplicate_approximate_duplicates",
             label="Dedup: Deduplicate approximate duplicates",
             description="Remove all but one copy from each group of approximate duplicates in the dataset",
-            icon="/assets/representative.svg",
             dynamic=True,
         )
+        _config.icon = "/assets/representative.svg"
+        return _config
 
     def resolve_input(self, ctx):
         inputs = types.Object()
