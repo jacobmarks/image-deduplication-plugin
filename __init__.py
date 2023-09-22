@@ -116,6 +116,7 @@ class RemoveAllExactDuplicates(foo.Operator):
             dynamic=True,
         )
         _config.icon = "/assets/delete.svg"
+        return _config
 
     def resolve_input(self, ctx):
         inputs = types.Object()
