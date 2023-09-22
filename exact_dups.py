@@ -1,28 +1,27 @@
 from collections import Counter
-
-import fiftyone as fo
 import fiftyone.core.utils as fou
 from fiftyone import ViewField as F
+from multiprocessing import cpu_count, Pool
 
 
 def get_filepath(sample):
-    return (
-        sample.local_path if hasattr(sample, "local_path") else sample.filepath
-    )
+    return sample.local_path if hasattr(sample, "local_path") else sample.filepath
 
 
-def compute_filehashes(sample_collection):
-    for sample in sample_collection.iter_samples(autosave=True):
-        filepath = get_filepath(sample)
-        sample["filehash"] = str(fou.compute_filehash(filepath))
+def _compute_filehash(filepath):
+    return {filepath: fou.compute_filehash(filepath)}
+
+
+def compute_filehashes(sample_collection, num_workers=cpu_count()):
+    filepaths = sample_collection.values("filepath")
+    num_workers = min(num_workers, len(filepaths))
+    p = Pool(num_workers)
+    hash_dict = p.map(_compute_filehash, filepaths)
+    sample_collection.set_values("hash_test", hash_dict, key_field="filepath")
 
 
 def _need_to_compute_filehashes(sample_collection):
-    return (
-        True
-        if "filehash" not in sample_collection.get_field_schema()
-        else False
-    )
+    return "filehash" not in sample_collection.get_field_schema()
 
 
 def find_exact_duplicates(sample_collection):
@@ -42,19 +41,16 @@ def find_exact_duplicates(sample_collection):
     num_images_with_exact_dups = len(exact_dup_view)
     num_dups = num_images_with_exact_dups - len(dup_filehashes)
 
-    response = {
+    return {
         "num_images_with_exact_dups": num_images_with_exact_dups,
         "num_dups": num_dups,
     }
-
-    return response
 
 
 def get_exact_duplicate_groups(sample_collection):
     dataset = sample_collection._dataset
     exact_dup_view = dataset.load_saved_view("exact_dup_view")
-    exact_dup_groups_view = exact_dup_view.group_by("filehash")
-    return exact_dup_groups_view
+    return exact_dup_view.group_by("filehash")
 
 
 def remove_all_exact_duplicates(sample_collection):
