@@ -15,6 +15,38 @@ import fiftyone.operators as foo
 from fiftyone.operators import types
 
 
+def _execution_mode(ctx, inputs):
+    delegate = ctx.params.get("delegate", False)
+
+    if delegate:
+        description = "Uncheck this box to execute the operation immediately"
+    else:
+        description = "Check this box to delegate execution of this task"
+
+    inputs.bool(
+        "delegate",
+        default=False,
+        required=True,
+        label="Delegate execution?",
+        description=description,
+        view=types.CheckboxView(),
+    )
+
+    if delegate:
+        inputs.view(
+            "notice",
+            types.Notice(
+                label=(
+                    "You've chosen delegated execution. Note that you must "
+                    "have a delegated operation service running in order for "
+                    "this task to be processed. See "
+                    "https://docs.voxel51.com/plugins/index.html#operators "
+                    "for more information"
+                )
+            ),
+        )
+
+
 def serialize_view(view):
     return json.loads(json_util.dumps(view._serialize()))
 
@@ -44,12 +76,16 @@ class FindExactDuplicates(foo.Operator):
         _config.icon = "/assets/exact_dup.svg"
         return _config
 
+    def resolve_delegation(self, ctx):
+        return ctx.params.get("delegate", False)
+
     def resolve_input(self, ctx):
         inputs = types.Object()
         form_view = types.View(
             label="Find exact duplicates",
             description="Find exact duplicates in the dataset",
         )
+        _execution_mode(ctx, inputs)
         return types.Property(inputs, view=form_view)
 
     def execute(self, ctx):
@@ -176,6 +212,9 @@ class FindApproximateDuplicates(foo.Operator):
         _config.icon = "/assets/approx_dup.svg"
         return _config
 
+    def resolve_delegation(self, ctx):
+        return ctx.params.get("delegate", False)
+
     def resolve_input(self, ctx):
         inputs = types.Object()
         form_view = types.View(
@@ -231,6 +270,7 @@ class FindApproximateDuplicates(foo.Operator):
                     description="Select the distance threshold for determining approximate duplicates",
                 )
 
+        _execution_mode(ctx, inputs)
         return types.Property(inputs, view=form_view)
 
     def execute(self, ctx):
