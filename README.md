@@ -9,10 +9,9 @@ With this plugin, you can:
 - View and interact with duplicate images in the App
 - Remove all duplicates, or keep a representative image from each duplicate set
 
-It demonstrates how to do the following:
+## Watch On Youtube
+[![Video Thumbnail](https://img.youtube.com/vi/aingeh0KdPw/0.jpg)](https://www.youtube.com/watch?v=aingeh0KdPw&list=PLuREAXoPgT0RZrUaT0UpX_HzwKkoB-S9j&index=5)
 
-- Set the session's view with a trigger and serialization
-- Split your Python code into multiple files and import them into your plugin
 
 ## Installation
 
