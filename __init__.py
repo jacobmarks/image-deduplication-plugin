@@ -4,10 +4,7 @@
 | `voxel51.com <https://voxel51.com/>`_
 |
 """
-import json
 import os
-
-from bson import json_util
 
 import fiftyone as fo
 from fiftyone.core.utils import add_sys_path
@@ -45,10 +42,6 @@ def _execution_mode(ctx, inputs):
                 )
             ),
         )
-
-
-def serialize_view(view):
-    return json.loads(json_util.dumps(view._serialize()))
 
 
 def get_similarity_runs(dataset):
@@ -96,7 +89,7 @@ class FindExactDuplicates(foo.Operator):
         sample_collection = ctx.dataset
 
         response = find_exact_duplicates(sample_collection)
-        ctx.trigger("reload_dataset")
+        ctx.ops.reload_dataset()
         return response
 
     def resolve_output(self, ctx):
@@ -136,10 +129,7 @@ class DisplayExactDuplicates(foo.Operator):
             from exact_dups import get_exact_duplicate_groups
 
         view = get_exact_duplicate_groups(ctx.dataset)
-        ctx.trigger(
-            "set_view",
-            params=dict(view=serialize_view(view)),
-        )
+        ctx.ops.set_view(view=view)
 
 
 class RemoveAllExactDuplicates(foo.Operator):
@@ -168,7 +158,7 @@ class RemoveAllExactDuplicates(foo.Operator):
             from exact_dups import remove_all_exact_duplicates
 
         remove_all_exact_duplicates(ctx.dataset)
-        ctx.trigger("reload_dataset")
+        ctx.ops.reload_dataset()
 
 
 class DeduplicateExactDuplicates(foo.Operator):
@@ -197,7 +187,7 @@ class DeduplicateExactDuplicates(foo.Operator):
             from exact_dups import deduplicate_exact_duplicates
 
         deduplicate_exact_duplicates(ctx.dataset)
-        ctx.trigger("reload_dataset")
+        ctx.ops.reload_dataset()
 
 
 class FindApproximateDuplicates(foo.Operator):
@@ -332,10 +322,7 @@ class DisplayApproximateDuplicates(foo.Operator):
             from approx_dups import get_approximate_duplicate_groups
 
             view = get_approximate_duplicate_groups(ctx.dataset)
-            ctx.trigger(
-                "set_view",
-                params=dict(view=serialize_view(view)),
-            )
+            ctx.ops.set_view(view=view)
 
 
 class RemoveAllApproximateDuplicates(foo.Operator):
@@ -364,7 +351,7 @@ class RemoveAllApproximateDuplicates(foo.Operator):
             from approx_dups import remove_all_approximate_duplicates
 
         remove_all_approximate_duplicates(ctx.dataset)
-        ctx.trigger("reload_dataset")
+        ctx.ops.reload_dataset()
 
 
 class DeduplicateApproximateDuplicates(foo.Operator):
@@ -393,7 +380,7 @@ class DeduplicateApproximateDuplicates(foo.Operator):
             from approx_dups import deduplicate_approximate_duplicates
 
         deduplicate_approximate_duplicates(ctx.dataset)
-        ctx.trigger("reload_dataset")
+        ctx.ops.reload_dataset()
 
 
 def register(plugin):
